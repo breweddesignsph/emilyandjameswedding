@@ -527,15 +527,15 @@
       <h2 class="font-serif text-4xl md:text-5xl italic mb-4">RSVP</h2>
       <p class="text-ivory/80 mb-10">Kindly respond by August 15th, 2026</p>
 
-      <form id="rsvp-form" class="space-y-5 text-left">
+      <form action="https://script.google.com/macros/s/AKfycbyALtvy-mC_weqphhlnzTGJse-g1l4Ijt_rmVwAKaPGxZ6Rs1ROOtkjh8OgBCjXf46P/exec" method="POST" id="rsvpForm" class="space-y-5 text-left">
         <div>
           <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Full Name</label>
-          <input required type="text" placeholder="Jane Doe" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
+          <input required type="text" name="FullName" placeholder="Jane Doe" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
         </div>
 
         <div>
           <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Will you attend?</label>
-          <select required class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory focus:outline-none focus:border-rose">
+          <select required name="Attending" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory focus:outline-none focus:border-rose">
             <option class="text-espresso">Attending</option>
             <option class="text-espresso">Not Attending</option>
           </select>
@@ -543,12 +543,12 @@
 
         <div>
           <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Number of Guests</label>
-          <input type="number" min="1" max="10" placeholder="1" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
+          <input type="number" name="GuestsCount" min="1" max="10" placeholder="1" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
         </div>
 
         <div>
           <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Meal Preference</label>
-          <select class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory focus:outline-none focus:border-rose">
+          <select name="MealPreference" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory focus:outline-none focus:border-rose">
             <option class="text-espresso">Herb-Roasted Chicken</option>
             <option class="text-espresso">Seared Salmon</option>
             <option class="text-espresso">Wild Mushroom Risotto (Vegetarian)</option>
@@ -557,12 +557,12 @@
 
         <div>
           <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Dietary Restrictions</label>
-          <input type="text" placeholder="Allergies, intolerances, etc." class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
+          <input type="text" name="DietaryRestrictions" placeholder="Allergies, intolerances, etc." class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
         </div>
 
         <div>
           <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Song Request</label>
-          <input type="text" placeholder="A song that will get you on the dance floor" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
+          <input type="text" name="SongRequest" placeholder="A song that will get you on the dance floor" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
         </div>
 
         <button type="submit" class="w-full mt-4 uppercase tracking-[0.3em] text-xs bg-rose text-ivory py-4 rounded-sm hover:bg-sage transition-colors">
@@ -653,12 +653,27 @@
       });
     });
 
-    // RSVP form submission
-    const rsvpForm = document.getElementById('rsvp-form');
+    // RSVP form submission — sends to the Google Sheet web app in the background
+    const rsvpForm = document.getElementById('rsvpForm');
     rsvpForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert("Thank you! We can't wait to celebrate with you.");
-      rsvpForm.reset();
+      const formData = new FormData(rsvpForm);
+
+      // Apps Script web apps don't return CORS headers, so the response is
+      // opaque (mode: 'no-cors') — we can't read success/failure from it,
+      // only detect a network-level failure to reach the endpoint at all.
+      fetch(rsvpForm.action, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
+      })
+        .catch((err) => {
+          console.error('RSVP submission failed to send:', err);
+        })
+        .finally(() => {
+          alert("Thank you! We can't wait to celebrate with you.");
+          rsvpForm.reset();
+        });
     });
 
     // Background music toggle
