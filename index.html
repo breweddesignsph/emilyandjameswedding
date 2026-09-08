@@ -78,7 +78,33 @@
         <a href="#faq" class="hover:text-rose transition-colors">FAQ</a>
         <a href="#rsvp" class="hover:text-rose transition-colors">RSVP</a>
       </div>
+
+      <!-- Mobile hamburger button (hidden on desktop) -->
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+        class="md:hidden text-2xl leading-none text-espresso">
+        <span id="hamburger-icon">&#9776;</span>
+      </button>
     </nav>
+
+    <!-- Mobile navigation dropdown -->
+    <div
+      id="mobileMenu"
+      class="hidden md:hidden absolute top-full inset-x-0 bg-[#FDFBF7] border-b border-[#2B1E17]/10 shadow-lg">
+      <div class="flex flex-col px-6 py-4 gap-4 text-xs uppercase tracking-[0.2em] font-medium">
+        <a href="#story" class="hover:text-rose transition-colors">Our Story</a>
+        <a href="#schedule" class="hover:text-rose transition-colors">Schedule</a>
+        <a href="#venue" class="hover:text-rose transition-colors">Venue</a>
+        <a href="#travel" class="hover:text-rose transition-colors">Travel</a>
+        <a href="#gallery" class="hover:text-rose transition-colors">Gallery</a>
+        <a href="#faq" class="hover:text-rose transition-colors">FAQ</a>
+        <a href="#rsvp" class="hover:text-rose transition-colors">RSVP</a>
+      </div>
+    </div>
   </header>
 
   <!-- HERO -->
@@ -593,6 +619,27 @@
 
     document.querySelectorAll('.scroll-animate').forEach((el) => {
       scrollObserver.observe(el);
+    });
+
+    // Mobile navigation menu toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      const willOpen = mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      mobileMenuToggle.setAttribute('aria-expanded', String(willOpen));
+      hamburgerIcon.innerHTML = willOpen ? '&#10005;' : '&#9776;';
+    });
+
+    // Close the mobile menu after tapping a link
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        hamburgerIcon.innerHTML = '&#9776;';
+      });
     });
 
     // FAQ accordion: keep only one panel open at a time
