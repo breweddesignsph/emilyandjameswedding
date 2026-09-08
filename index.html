@@ -658,6 +658,10 @@
     rsvpForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const formData = new FormData(rsvpForm);
+      const isAttending = formData.get('Attending') === 'Attending';
+      const confirmationMessage = isAttending
+        ? "Thank you! We can't wait to celebrate with you."
+        : "We're so sorry you can't make it — you'll be missed! Thank you for letting us know.";
 
       // Apps Script web apps don't return CORS headers, so the response is
       // opaque (mode: 'no-cors') — we can't read success/failure from it,
@@ -671,7 +675,7 @@
           console.error('RSVP submission failed to send:', err);
         })
         .finally(() => {
-          alert("Thank you! We can't wait to celebrate with you.");
+          alert(confirmationMessage);
           rsvpForm.reset();
         });
     });
