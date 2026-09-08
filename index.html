@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Emily &amp; James | October 18, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ivory: '#FDFBF7',
+          espresso: '#2B1E17',
+          sage: '#8A9A80',
+          rose: '#D8A7B1',
+        },
+        fontFamily: {
+          serif: ["'Cormorant Garamond'", 'serif'],
+          sans: ["'DM Sans'", 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #FDFBF7; color: #2B1E17; }
+  .fade-line { height: 1px; background: linear-gradient(to right, transparent, #8A9A80, transparent); }
+
+  /* Timeline */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #8A9A80 8%, #8A9A80 92%, transparent);
+  }
+  @media (min-width: 768px) {
+    .timeline::before { left: 50%; transform: translateX(-50%); }
+  }
+  .timeline-leaf {
+    width: 10px; height: 10px;
+    border: 1px solid #8A9A80;
+    background: #FDFBF7;
+    transform: rotate(45deg);
+  }
+
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform 0.25s ease; }
+
+  .masonry { column-count: 1; column-gap: 1rem; }
+  @media (min-width: 640px) { .masonry { column-count: 2; } }
+  @media (min-width: 1024px) { .masonry { column-count: 3; } }
+  .masonry img { width: 100%; display: block; margin-bottom: 1rem; break-inside: avoid; }
+</style>
+</head>
+<body class="bg-[#FDFBF7] text-[#2B1E17] font-sans antialiased">
+
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-[#FDFBF7]/90 backdrop-blur-sm border-b border-[#2B1E17]/10">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="#top" class="font-serif text-xl tracking-widest">E &amp; J</a>
+      <div class="hidden md:flex gap-6 text-[11px] tracking-[0.2em] uppercase font-medium">
+        <a href="#story" class="hover:text-rose transition-colors">Our Story</a>
+        <a href="#schedule" class="hover:text-rose transition-colors">Schedule</a>
+        <a href="#venue" class="hover:text-rose transition-colors">Venue</a>
+        <a href="#travel" class="hover:text-rose transition-colors">Travel</a>
+        <a href="#gallery" class="hover:text-rose transition-colors">Gallery</a>
+        <a href="#faq" class="hover:text-rose transition-colors">FAQ</a>
+        <a href="#rsvp" class="hover:text-rose transition-colors">RSVP</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="hero-fade opacity-0 translate-y-8 transition-all duration-1000 ease-out transform relative h-screen min-h-[640px] w-full flex items-end justify-center overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1800&q=80"
+      alt="Emily and James embracing"
+      class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#2B1E17]/75 via-[#2B1E17]/10 to-[#2B1E17]/30"></div>
+    <div class="relative z-10 text-center text-ivory pb-20 px-6">
+      <p class="uppercase tracking-[0.4em] text-xs md:text-sm mb-4 text-rose">We're Getting Married</p>
+      <h1 class="font-serif italic text-5xl md:text-7xl font-medium leading-none">Emily Grace Carter</h1>
+      <p class="font-serif italic text-2xl md:text-3xl my-3 text-rose">&amp;</p>
+      <h1 class="font-serif italic text-5xl md:text-7xl font-medium leading-none">James Alexander Bennett</h1>
+      <div class="fade-line w-40 mx-auto my-6"></div>
+      <p class="uppercase tracking-[0.3em] text-sm md:text-base">Sunday, October 18th 2026 &middot; Napa Valley, California</p>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section id="story" class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform max-w-6xl mx-auto px-6 py-28">
+    <div class="text-center mb-16">
+      <p class="uppercase tracking-[0.3em] text-xs text-sage mb-3">Our Story</p>
+      <h2 class="font-serif text-4xl md:text-5xl italic">How We Got Here</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+      <div>
+        <h3 class="font-serif text-2xl italic mb-4 text-rose">The Dinner Party, 2020</h3>
+        <p class="leading-relaxed text-[#2B1E17]/80">
+          Emily and James met at a small dinner party thrown by mutual friends. James noticed her the moment she
+          walked in &mdash; though he'll be the first to admit he spent a nervous twenty minutes talking to
+          everyone else in the room over a shared bottle of wine before he worked up the courage to say hello.
+          Emily still teases him about it to this day.
+        </p>
+      </div>
+      <img
+        src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=80"
+        alt="Emily and James together"
+        class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform w-full h-80 object-cover rounded-sm shadow-xl" />
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+      <img
+        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80"
+        alt="A quiet moment together"
+        class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform w-full h-80 object-cover rounded-sm shadow-xl order-2 md:order-1" />
+      <div class="order-1 md:order-2">
+        <h3 class="font-serif text-2xl italic mb-4 text-rose">Big Sur, Three Years Later</h3>
+        <p class="leading-relaxed text-[#2B1E17]/80">
+          Three years after that first dinner party, James proposed at Big Sur. There was no elaborate setup, no
+          hidden photographer &mdash; just the two of them, the sound of the ocean, and a visibly nervous James
+          fumbling for the right words. Emily said yes before he even finished the question.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <img
+        src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=700&q=80"
+        alt="Couple silhouette"
+        class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform w-full h-64 object-cover rounded-sm shadow" />
+      <img
+        src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=700&q=80"
+        alt="Bouquet detail"
+        class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform w-full h-64 object-cover rounded-sm shadow" />
+    </div>
+  </section>
+
+  <!-- ENGAGEMENT -->
+  <section class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform bg-[#2B1E17]/5 py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="uppercase tracking-[0.3em] text-xs text-sage mb-3">Before Forever</p>
+        <h2 class="font-serif text-4xl md:text-5xl italic">Our Engagement</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform w-full h-72 object-cover rounded-sm shadow" src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" alt="Engagement photo one" />
+        <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform w-full h-72 object-cover rounded-sm shadow mt-8" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80" alt="Engagement ring detail" />
+        <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform w-full h-72 object-cover rounded-sm shadow" src="https://images.unsplash.com/photo-1509927083803-4bd519298ac4?auto=format&fit=crop&w=600&q=80" alt="Engagement photo two" />
+        <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform w-full h-72 object-cover rounded-sm shadow mt-8" src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?auto=format&fit=crop&w=600&q=80" alt="Engagement photo three" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule" class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform max-w-4xl mx-auto px-6 py-28">
+    <div class="text-center mb-20">
+      <p class="uppercase tracking-[0.3em] text-xs text-sage mb-3">The Day</p>
+      <h2 class="font-serif text-4xl md:text-5xl italic">Schedule of Events</h2>
+    </div>
+
+    <div class="timeline space-y-14 md:space-y-20">
+
+      <div class="relative flex md:justify-center">
+        <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+          <p class="font-serif italic text-2xl text-rose">4:30 PM</p>
+          <p class="font-medium mt-1">Ceremony</p>
+          <p class="text-sm text-[#2B1E17]/70 mt-1">The Garden Lawn</p>
+        </div>
+        <div class="absolute left-[16px] md:left-1/2 top-1 timeline-leaf md:-translate-x-1/2"></div>
+        <div class="hidden md:block md:w-1/2"></div>
+      </div>
+
+      <div class="relative flex md:justify-center">
+        <div class="hidden md:block md:w-1/2"></div>
+        <div class="absolute left-[16px] md:left-1/2 top-1 timeline-leaf md:-translate-x-1/2"></div>
+        <div class="md:w-1/2 md:pl-12 pl-12">
+          <p class="font-serif italic text-2xl text-rose">5:15 PM</p>
+          <p class="font-medium mt-1">Cocktails &amp; Garden Hour</p>
+          <p class="text-sm text-[#2B1E17]/70 mt-1">The Terrace</p>
+        </div>
+      </div>
+
+      <div class="relative flex md:justify-center">
+        <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+          <p class="font-serif italic text-2xl text-rose">6:00 PM</p>
+          <p class="font-medium mt-1">Dinner</p>
+          <p class="text-sm text-[#2B1E17]/70 mt-1">The Willow Room</p>
+        </div>
+        <div class="absolute left-[16px] md:left-1/2 top-1 timeline-leaf md:-translate-x-1/2"></div>
+        <div class="hidden md:block md:w-1/2"></div>
+      </div>
+
+      <div class="relative flex md:justify-center">
+        <div class="hidden md:block md:w-1/2"></div>
+        <div class="absolute left-[16px] md:left-1/2 top-1 timeline-leaf md:-translate-x-1/2"></div>
+        <div class="md:w-1/2 md:pl-12 pl-12">
+          <p class="font-serif italic text-2xl text-rose">8:00 PM</p>
+          <p class="font-medium mt-1">Dancing</p>
+          <p class="text-sm text-[#2B1E17]/70 mt-1">The Willow Room</p>
+        </div>
+      </div>
+
+      <div class="relative flex md:justify-center">
+        <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+          <p class="font-serif italic text-2xl text-rose">10:30 PM</p>
+          <p class="font-medium mt-1">Last Dance</p>
+          <p class="text-sm text-[#2B1E17]/70 mt-1">Send-off under the string lights</p>
+        </div>
+        <div class="absolute left-[16px] md:left-1/2 top-1 timeline-leaf md:-translate-x-1/2"></div>
+        <div class="hidden md:block md:w-1/2"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VENUE -->
+  <section id="venue" class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform relative py-28">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1800&q=80"
+        alt="Garden reception venue"
+        class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-[#FDFBF7]/90"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-6 text-center">
+      <p class="uppercase tracking-[0.3em] text-xs text-sage mb-3">The Venue</p>
+      <h2 class="font-serif text-4xl md:text-5xl italic mb-6">The Willow Estate</h2>
+      <p class="leading-relaxed text-[#2B1E17]/80 max-w-xl mx-auto mb-2">
+        Napa Valley, California
+      </p>
+      <p class="leading-relaxed text-[#2B1E17]/80 max-w-xl mx-auto mb-10">
+        Our ceremony will take place outdoors in the estate's garden, followed by an indoor dinner reception
+        in the Willow Room as the evening cools.
+      </p>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Napa+Valley+California"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block uppercase tracking-[0.3em] text-xs border border-espresso px-8 py-4 rounded-sm hover:bg-espresso hover:text-ivory transition-colors">
+        View on Map
+      </a>
+    </div>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform max-w-4xl mx-auto px-6 py-28 text-center">
+    <p class="uppercase tracking-[0.3em] text-xs text-sage mb-3">What to Wear</p>
+    <h2 class="font-serif text-4xl md:text-5xl italic mb-4">Garden Formal</h2>
+    <div class="fade-line w-24 mx-auto mb-12"></div>
+
+    <div class="grid md:grid-cols-2 gap-10 text-left">
+      <div class="bg-[#2B1E17]/5 rounded-sm p-8">
+        <h3 class="font-serif text-2xl italic mb-3 text-rose">For Women</h3>
+        <p class="leading-relaxed text-[#2B1E17]/80">
+          Long or midi-length dresses in warm autumn tones &mdash; think rust, plum, olive, or champagne.
+          Florals and soft fabrics are welcome.
+        </p>
+      </div>
+      <div class="bg-[#2B1E17]/5 rounded-sm p-8">
+        <h3 class="font-serif text-2xl italic mb-3 text-rose">For Men</h3>
+        <p class="leading-relaxed text-[#2B1E17]/80">
+          Suits or tailored separates in neutral tones &mdash; navy, brown, or charcoal work beautifully.
+          Ties optional.
+        </p>
+      </div>
+    </div>
+
+    <p class="mt-10 text-sm italic text-[#2B1E17]/70 max-w-xl mx-auto border border-sage/50 rounded-sm px-6 py-4">
+      Please note: our ceremony will take place on grass, so ladies may want to consider block heels or flats.
+    </p>
+  </section>
+
+  <!-- TRAVEL & ACCOMMODATIONS -->
+  <section id="travel" class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform bg-[#2B1E17]/5 py-28">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="uppercase tracking-[0.3em] text-xs text-sage mb-3">Travel &amp; Accommodations</p>
+        <h2 class="font-serif text-4xl md:text-5xl italic">Getting to Napa Valley</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-10 mb-20 text-center">
+        <div>
+          <h3 class="font-serif text-xl italic mb-2 text-rose">By Air</h3>
+          <p class="text-sm leading-relaxed text-[#2B1E17]/80">
+            Fly into San Francisco International Airport (SFO), approximately 90 minutes from the venue by car.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-serif text-xl italic mb-2 text-rose">By Car</h3>
+          <p class="text-sm leading-relaxed text-[#2B1E17]/80">
+            From SFO, take Highway 101 North to Highway 37 East, then Highway 29 North into Napa Valley.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-serif text-xl italic mb-2 text-rose">When to Arrive</h3>
+          <p class="text-sm leading-relaxed text-[#2B1E17]/80">
+            We recommend arriving one day early to settle in and enjoy the valley before the festivities begin.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-ivory rounded-sm shadow-sm border border-[#2B1E17]/10 overflow-hidden flex flex-col">
+          <div class="h-40 bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=80')] bg-cover bg-center"></div>
+          <div class="p-6 text-center flex flex-col flex-1">
+            <p class="uppercase tracking-widest text-[10px] text-sage mb-2">Luxury</p>
+            <h4 class="font-serif text-xl italic mb-2">The Carneros Resort</h4>
+            <p class="text-sm text-[#2B1E17]/70 flex-1">5 miles from the venue &middot; elegant private cottages.</p>
+            <a href="https://carnerosresort.com" target="_blank" rel="noopener noreferrer" class="mt-5 inline-block uppercase tracking-[0.2em] text-[11px] border border-espresso px-6 py-3 rounded-sm hover:bg-espresso hover:text-ivory transition-colors">Visit Website</a>
+          </div>
+        </div>
+        <div class="bg-ivory rounded-sm shadow-sm border border-[#2B1E17]/10 overflow-hidden flex flex-col">
+          <div class="h-40 bg-[url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=700&q=80')] bg-cover bg-center"></div>
+          <div class="p-6 text-center flex flex-col flex-1">
+            <p class="uppercase tracking-widest text-[10px] text-sage mb-2">Mid-Range</p>
+            <h4 class="font-serif text-xl italic mb-2">Napa Valley Marriott</h4>
+            <p class="text-sm text-[#2B1E17]/70 flex-1">8 miles from the venue &middot; comfortable, well-appointed rooms.</p>
+            <a href="https://marriott.com" target="_blank" rel="noopener noreferrer" class="mt-5 inline-block uppercase tracking-[0.2em] text-[11px] border border-espresso px-6 py-3 rounded-sm hover:bg-espresso hover:text-ivory transition-colors">Visit Website</a>
+          </div>
+        </div>
+        <div class="bg-ivory rounded-sm shadow-sm border border-[#2B1E17]/10 overflow-hidden flex flex-col">
+          <div class="h-40 bg-[url('https://images.unsplash.com/photo-1501117716987-c8e1ecb210af?auto=format&fit=crop&w=700&q=80')] bg-cover bg-center"></div>
+          <div class="p-6 text-center flex flex-col flex-1">
+            <p class="uppercase tracking-widest text-[10px] text-sage mb-2">Budget-Friendly</p>
+            <h4 class="font-serif text-xl italic mb-2">The Meritage Resort</h4>
+            <p class="text-sm text-[#2B1E17]/70 flex-1">12 miles from the venue &middot; a standard, comfortable stay.</p>
+            <a href="https://meritageresort.com" target="_blank" rel="noopener noreferrer" class="mt-5 inline-block uppercase tracking-[0.2em] text-[11px] border border-espresso px-6 py-3 rounded-sm hover:bg-espresso hover:text-ivory transition-colors">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform max-w-6xl mx-auto px-6 py-28">
+    <div class="text-center mb-16">
+      <p class="uppercase tracking-[0.3em] text-xs text-sage mb-3">Photo Gallery</p>
+      <h2 class="font-serif text-4xl md:text-5xl italic">Us, Along the Way</h2>
+    </div>
+    <div class="masonry">
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Wedding rings on flowers" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=700&q=80" alt="Bride and groom embrace" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=700&q=80" alt="Couple walking together" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80" alt="Table setting detail" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=700&q=80" alt="Reception decor" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=80" alt="Couple close together" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80" alt="Quiet moment" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=700&q=80" alt="Couple silhouette" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=700&q=80" alt="Bouquet detail" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=700&q=80" alt="Ring detail" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1509927083803-4bd519298ac4?auto=format&fit=crop&w=700&q=80" alt="Engagement moment" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?auto=format&fit=crop&w=700&q=80" alt="Wedding detail" />
+      <img class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform" src="https://images.unsplash.com/photo-1470906954797-9403d1ea9dbc?auto=format&fit=crop&w=700&q=80" alt="Floral arrangement" />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform bg-[#2B1E17]/5 py-28">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="uppercase tracking-[0.3em] text-xs text-sage mb-3">Questions</p>
+        <h2 class="font-serif text-4xl md:text-5xl italic">Frequently Asked</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="bg-ivory border border-[#2B1E17]/10 rounded-sm px-6 py-4" open>
+          <summary class="flex items-center justify-between font-medium">
+            What time should we arrive?
+            <span class="faq-icon text-rose text-xl leading-none">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-[#2B1E17]/75 leading-relaxed">
+            Please plan to be seated by 4:15 PM so the ceremony can begin promptly at 4:30 PM.
+          </p>
+        </details>
+
+        <details class="bg-ivory border border-[#2B1E17]/10 rounded-sm px-6 py-4">
+          <summary class="flex items-center justify-between font-medium">
+            Is there parking available at the venue?
+            <span class="faq-icon text-rose text-xl leading-none">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-[#2B1E17]/75 leading-relaxed">
+            Yes, complimentary on-site parking is available. A valet team will be on hand to help direct guests.
+          </p>
+        </details>
+
+        <details class="bg-ivory border border-[#2B1E17]/10 rounded-sm px-6 py-4">
+          <summary class="flex items-center justify-between font-medium">
+            Can I bring a plus one?
+            <span class="faq-icon text-rose text-xl leading-none">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-[#2B1E17]/75 leading-relaxed">
+            Your invitation and RSVP form will indicate the number of seats reserved in your honor. Please reach
+            out to us directly if you have questions about your invite.
+          </p>
+        </details>
+
+        <details class="bg-ivory border border-[#2B1E17]/10 rounded-sm px-6 py-4">
+          <summary class="flex items-center justify-between font-medium">
+            Are children welcome?
+            <span class="faq-icon text-rose text-xl leading-none">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-[#2B1E17]/75 leading-relaxed">
+            While we love your little ones, our celebration is an adults-only evening, with the exception of
+            immediate family.
+          </p>
+        </details>
+
+        <details class="bg-ivory border border-[#2B1E17]/10 rounded-sm px-6 py-4">
+          <summary class="flex items-center justify-between font-medium">
+            What happens if it rains?
+            <span class="faq-icon text-rose text-xl leading-none">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-[#2B1E17]/75 leading-relaxed">
+            The Willow Estate has a beautiful covered pavilion as a backup ceremony location, so the celebration
+            will go on rain or shine.
+          </p>
+        </details>
+
+        <details class="bg-ivory border border-[#2B1E17]/10 rounded-sm px-6 py-4">
+          <summary class="flex items-center justify-between font-medium">
+            Is the ceremony unplugged?
+            <span class="faq-icon text-rose text-xl leading-none">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-[#2B1E17]/75 leading-relaxed">
+            Yes &mdash; we kindly ask that phones and cameras stay put away during the ceremony so everyone can be
+            present. Our photographer will capture every moment, and we'll share photos after the wedding.
+          </p>
+        </details>
+
+        <details class="bg-ivory border border-[#2B1E17]/10 rounded-sm px-6 py-4">
+          <summary class="flex items-center justify-between font-medium">
+            Will transportation be provided?
+            <span class="faq-icon text-rose text-xl leading-none">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-[#2B1E17]/75 leading-relaxed">
+            A shuttle will run between our recommended hotels and the venue throughout the evening. Details will
+            be shared closer to the date.
+          </p>
+        </details>
+
+        <details class="bg-ivory border border-[#2B1E17]/10 rounded-sm px-6 py-4">
+          <summary class="flex items-center justify-between font-medium">
+            By when should I RSVP?
+            <span class="faq-icon text-rose text-xl leading-none">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-[#2B1E17]/75 leading-relaxed">
+            We kindly ask that you RSVP using the form on this site by August 15th, 2026.
+          </p>
+        </details>
+
+        <details class="bg-ivory border border-[#2B1E17]/10 rounded-sm px-6 py-4">
+          <summary class="flex items-center justify-between font-medium">
+            Who should I contact with other questions?
+            <span class="faq-icon text-rose text-xl leading-none">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-[#2B1E17]/75 leading-relaxed">
+            Feel free to reach out to either of us directly, or contact our wedding coordinator, who is happy to
+            help with any details.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRY -->
+  <section class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform max-w-3xl mx-auto px-6 py-28 text-center">
+    <p class="uppercase tracking-[0.3em] text-xs text-sage mb-3">Registry</p>
+    <h2 class="font-serif text-4xl md:text-5xl italic mb-8">Your Presence Is the Greatest Gift</h2>
+    <p class="leading-relaxed text-[#2B1E17]/80 max-w-xl mx-auto mb-10">
+      Having you with us to celebrate is all we could ask for. For those who wish to give a gift, we've shared a
+      couple of registries below to help us start our new home together.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://giftregistry.crateandbarrel.com.ph/" target="_blank" rel="noopener noreferrer" class="uppercase tracking-[0.3em] text-xs border border-espresso px-8 py-4 rounded-sm hover:bg-espresso hover:text-ivory transition-colors">Our Crate &amp; Barrel Registry</a>
+      <a href="https://www.honeyfund.com/" target="_blank" rel="noopener noreferrer" class="uppercase tracking-[0.3em] text-xs border border-espresso px-8 py-4 rounded-sm hover:bg-espresso hover:text-ivory transition-colors">Our Honeyfund Honeymoon Fund</a>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp" class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform relative py-28">
+    <img
+      src="https://images.unsplash.com/photo-1470906954797-9403d1ea9dbc?auto=format&fit=crop&w=1800&q=80"
+      alt="Wedding florals"
+      class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-[#2B1E17]/75"></div>
+    <div class="relative max-w-xl mx-auto px-6 text-center text-ivory">
+      <p class="uppercase tracking-[0.3em] text-xs text-rose mb-3">Join Us</p>
+      <h2 class="font-serif text-4xl md:text-5xl italic mb-4">RSVP</h2>
+      <p class="text-ivory/80 mb-10">Kindly respond by August 15th, 2026</p>
+
+      <form id="rsvp-form" class="space-y-5 text-left">
+        <div>
+          <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Full Name</label>
+          <input required type="text" placeholder="Jane Doe" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
+        </div>
+
+        <div>
+          <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Will you attend?</label>
+          <select required class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory focus:outline-none focus:border-rose">
+            <option class="text-espresso">Attending</option>
+            <option class="text-espresso">Not Attending</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Number of Guests</label>
+          <input type="number" min="1" max="10" placeholder="1" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
+        </div>
+
+        <div>
+          <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Meal Preference</label>
+          <select class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory focus:outline-none focus:border-rose">
+            <option class="text-espresso">Herb-Roasted Chicken</option>
+            <option class="text-espresso">Seared Salmon</option>
+            <option class="text-espresso">Wild Mushroom Risotto (Vegetarian)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Dietary Restrictions</label>
+          <input type="text" placeholder="Allergies, intolerances, etc." class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
+        </div>
+
+        <div>
+          <label class="block uppercase tracking-widest text-xs mb-2 text-ivory/70">Song Request</label>
+          <input type="text" placeholder="A song that will get you on the dance floor" class="w-full bg-transparent border-b border-ivory/40 py-2 text-ivory placeholder-ivory/40 focus:outline-none focus:border-rose" />
+        </div>
+
+        <button type="submit" class="w-full mt-4 uppercase tracking-[0.3em] text-xs bg-rose text-ivory py-4 rounded-sm hover:bg-sage transition-colors">
+          Send RSVP
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="scroll-animate opacity-0 translate-y-8 transition-all duration-1000 ease-out transform py-16 text-center">
+    <p class="font-serif italic text-3xl mb-2">Emily &amp; James</p>
+    <p class="uppercase tracking-[0.3em] text-xs text-sage mb-6">#CarterBennett2026</p>
+    <div class="fade-line w-24 mx-auto"></div>
+    <p class="mt-6 text-xs text-[#2B1E17]/50">With love, October 18th 2026 &middot; Napa Valley, California</p>
+  </footer>
+
+  <!-- BACKGROUND MUSIC TOGGLE -->
+  <!-- Place your "piano.mp3" file in this project folder (same directory as index.html) for playback to work. -->
+  <audio id="weddingAudio" loop preload="none">
+    <source src="piano.mp3" type="audio/mpeg" />
+  </audio>
+  <button
+    id="music-toggle"
+    type="button"
+    aria-label="Toggle background music"
+    class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-espresso text-ivory flex items-center justify-center shadow-lg hover:bg-rose transition-colors">
+    <span id="music-icon">&#9835;</span>
+  </button>
+
+  <script>
+    // Scroll-driven fade-in animations
+    // Hero fades in immediately on load rather than waiting for a scroll/intersection event.
+    document.querySelectorAll('.hero-fade').forEach((el) => {
+      requestAnimationFrame(() => {
+        el.classList.remove('opacity-0', 'translate-y-8');
+        el.classList.add('opacity-100', 'translate-y-0');
+      });
+    });
+
+    // Everything else fades in the first time it scrolls into view.
+    const scrollObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-y-8');
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    document.querySelectorAll('.scroll-animate').forEach((el) => {
+      scrollObserver.observe(el);
+    });
+
+    // FAQ accordion: keep only one panel open at a time
+    document.querySelectorAll('#faq details').forEach((el) => {
+      el.addEventListener('toggle', () => {
+        if (el.open) {
+          document.querySelectorAll('#faq details').forEach((other) => {
+            if (other !== el) other.open = false;
+          });
+        }
+      });
+    });
+
+    // RSVP form submission
+    const rsvpForm = document.getElementById('rsvp-form');
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Thank you! We can't wait to celebrate with you.");
+      rsvpForm.reset();
+    });
+
+    // Background music toggle
+    const weddingAudio = document.getElementById('weddingAudio');
+    const musicToggle = document.getElementById('music-toggle');
+    const musicIcon = document.getElementById('music-icon');
+
+    musicToggle.addEventListener('click', () => {
+      if (weddingAudio.paused) {
+        weddingAudio.play().catch(() => {
+          console.warn('Add a "piano.mp3" file next to index.html to enable background music.');
+        });
+        musicIcon.innerHTML = '&#10074;&#10074;';
+      } else {
+        weddingAudio.pause();
+        musicIcon.innerHTML = '&#9835;';
+      }
+    });
+  </script>
+
+</body>
+</html>
